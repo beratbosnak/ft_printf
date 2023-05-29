@@ -31,7 +31,7 @@ int	ft_putstr(char *str)
 
 int	ft_nbr(unsigned long nbr, int base, char *str, int mod)
 {
-	int	nbr_list[100];
+	int	nbr_list[30];
 	int	i;
 	int	len;
 
