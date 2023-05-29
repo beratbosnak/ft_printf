@@ -104,3 +104,8 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
+
+int main(void)
+{
+	ft_printf("%s", berat);
+}
