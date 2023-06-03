@@ -107,5 +107,5 @@ int	ft_printf(const char *str, ...)
 
 /* int main(void)
 {
-	ft_printf("%s", berat);
+	ft_printf("%s", "berat");
 } */
