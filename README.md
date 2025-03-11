@@ -42,7 +42,7 @@ To use `ft_printf` in your project, include the header file and compile with the
 Then, compile your program with:
 
 ```sh
-gcc main.c -L. -lftprintf -o program
+cc main.c -L. -lftprintf -o program
 ```
 
 ### Example Usage with `libftprintf.a`
@@ -62,7 +62,7 @@ int main() {
 
 Compile and run:
 ```sh
-gcc main.c -L. -lftprintf -o my_program
+cc main.c -L. -lftprintf -o my_program
 ./my_program
 ```
 
