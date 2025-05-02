@@ -8,7 +8,7 @@
 ## 📑 Table of Contents
 - [Project Description](#-project-description)
 - [Supported Format Specifiers](#-supported-format-specifiers)
-- [Installation](#️-installation)
+- [Compilation](#-compilation)
 - [Usage](#-usage)
 - [Example](#-example)
 - [Project Structure](#-project-structure)
@@ -37,8 +37,8 @@ This implementation supports the following format specifiers:
 | `%X`      | Unsigned hexadecimal (upper)   |
 | `%%`      | Literal percent symbol         |
 
-## ⚙️ Installation
-To compile the library:
+## ⚙️ Compilation
+Run the following commands to build the project:
 
 ```bash
 git clone https://github.com/valyriasteel/ft_printf.git
