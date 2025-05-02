@@ -8,7 +8,7 @@
 ## 📑 Table of Contents
 - [Project Description](#-project-description)
 - [Supported Format Specifiers](#-supported-format-specifiers)
-- [Compilation](#-compilation)
+- [Compilation](#️-compilation)
 - [Usage](#-usage)
 - [Example](#-example)
 - [Project Structure](#-project-structure)
