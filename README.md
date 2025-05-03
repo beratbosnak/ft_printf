@@ -48,6 +48,13 @@ make
 
 This will generate `libftprintf.a`, the static archive that you can link in your C projects.
 
+Other useful commands:
+```bash
+make clean   # Remove object files
+make fclean  # Remove all binaries and libftprintf.a
+make re      # Rebuild everything from scratch
+```
+
 ## 🚀 Usage
 Include the header in your source file:
 
@@ -60,6 +67,8 @@ Then compile your project with:
 ```bash
 cc main.c -L. -lftprintf -o my_program
 ```
+
+> 🧪 You can test ft_printf using your own `main.c` or compare outputs with the original printf.
 
 ## 💡 Example
 ```c
@@ -97,7 +106,7 @@ Percent sign: %
 
 ```
 ft_printf/
-├── ft_printf.c        # Main implementation
+├── ft_printf.c        # Main implementation (e.g., handles %c, %s, %d)
 ├── ft_printf.h        # Header file
 ├── Makefile           # Build script
 └── README.md          # Documentation
