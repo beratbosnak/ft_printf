@@ -1,126 +1,114 @@
-# 🖨️ ft_printf – Reimplementation of printf in C
+# ft_printf - A Custom `printf` Implementation
 
-![ft_printf](https://img.shields.io/badge/ft--printf-C%20Implementation-blue.svg)
-![Build](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Made with C](https://img.shields.io/badge/made%20with-C-blue)
+![Language](https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## 📑 Table of Contents
-- [Project Description](#-project-description)
-- [Supported Format Specifiers](#-supported-format-specifiers)
-- [Compilation](#️-compilation)
-- [Usage](#-usage)
-- [Example](#-example)
-- [Project Structure](#-project-structure)
-- [License](#-license)
-- [Contact](#-contact)
+## 📋 Table of Contents
 
-## 📌 Project Description
-**ft_printf** is a custom implementation of the standard `printf` function, created during the 42 school curriculum.  
-It replicates formatted output and processes variable arguments, all implemented in C from scratch.
+1.  [About The Project](#-about-the-project)
+2.  [Supported Conversions](#-supported-conversions)
+3.  [Getting Started](#-getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation & Compiling](#installation--compiling)
+5.  [Usage Example](#-usage-example)
+6.  [License](#-license)
+7.  [Contact](#-contact)
 
-The goal of this project is to gain a deep understanding of variadic functions, memory management, and output formatting logic at the system level.
+## 🚀 About The Project
 
-> 🧠 This project was built to strengthen my low-level programming skills in C by recreating one of the most fundamental standard library functions.
+`ft_printf` is a custom implementation of the standard C `printf` function. This project's primary challenge is handling a variable number of arguments, a concept known as **variadic functions**. It parses a format string and substitutes arguments accordingly, providing a foundational tool for formatted output in C.
 
-## 🔤 Supported Format Specifiers
-This implementation supports the following format specifiers:
+The final output is a static library, `libftprintf.a`, which can be linked to any C project to provide flexible printing capabilities, much like its standard counterpart.
 
-| Specifier | Description                    |
-|-----------|--------------------------------|
-| `%c`      | Character                      |
-| `%s`      | String                         |
-| `%p`      | Pointer address (hex)          |
-| `%d`, `%i`| Signed decimal integer         |
-| `%u`      | Unsigned decimal integer       |
-| `%x`      | Unsigned hexadecimal (lower)   |
-| `%X`      | Unsigned hexadecimal (upper)   |
-| `%%`      | Literal percent symbol         |
+## ✨ Supported Conversions
 
-## ⚙️ Compilation
-Run the following commands to build the project:
+This implementation of `ft_printf` supports the following format specifiers:
 
-```bash
-git clone https://github.com/valyriasteel/ft_printf.git
-cd ft_printf
-make
-```
+| Specifier | Output |
+| :--- | :--- |
+| `%c` | A single character. |
+| `%s` | A string of characters. |
+| `%p` | The `void *` pointer argument printed in hexadecimal format. |
+| `%d` | A decimal (base 10) number. |
+| `%i` | An integer in base 10. |
+| `%u` | An unsigned decimal (base 10) number. |
+| `%x` | A number in hexadecimal (base 16) lowercase format. |
+| `%X` | A number in hexadecimal (base 16) uppercase format. |
+| `%%` | A literal percent sign. |
 
-This will generate `libftprintf.a`, the static archive that you can link in your C projects.
+## 🛠 Getting Started
 
-Other useful commands:
-```bash
-make clean   # Remove object files
-make fclean  # Remove all binaries and libftprintf.a
-make re      # Rebuild everything from scratch
-```
+To get a local copy up and running, follow these simple steps.
 
-## 🚀 Usage
-Include the header in your source file:
+### Prerequisites
 
-```c
-#include "ft_printf.h"
-```
+You need a C compiler (like `gcc` or `clang`) and `make` installed on your system. This project is designed for UNIX-like operating systems.
 
-Then compile your project with:
+### Installation & Compiling
 
-```bash
-cc main.c -L. -lftprintf -o my_program
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/beratbosnak/ft_printf.git
+    cd ft_printf
+    ```
 
-> 🧪 You can test ft_printf using your own `main.c` or compare outputs with the original printf.
+2.  **Compile the library using `make`:**
+    The following commands are available to manage the project:
 
-## 💡 Example
-```c
-#include "ft_printf.h"
+    *   `make` or `make all`
+        > Compiles the source files and creates the static library `libftprintf.a`.
+    *   `make clean`
+        > Removes the temporary object files (`.o`).
+    *   `make fclean`
+        > Removes the object files and the `libftprintf.a` library.
+    *   `make re`
+        > Re-compiles the library from scratch by running `fclean` and `all` sequentially.
 
-int main() {
-    void *ptr = &ptr;
-    ft_printf("Character: %c\n", 'A');
-    ft_printf("String: %s\n", "Hello, ft_printf!");
-    ft_printf("Pointer: %p\n", ptr);
-    ft_printf("Decimal: %d\n", 42);
-    ft_printf("Unsigned: %u\n", 3000000000);
-    ft_printf("Hex lower: %x\n", 48879);
-    ft_printf("Hex upper: %X\n", 48879);
-    ft_printf("Percent sign: %%\n");
-    return 0;
-}
-```
+## 🖥 Usage Example
 
-### Output
-```
-Character: A
-String: Hello, ft_printf!
-Pointer: 0x[address]
-Decimal: 42
-Unsigned: 3000000000
-Hex lower: beef
-Hex upper: BEEF
-Percent sign: %
-```
+Here is a simple example demonstrating how to link and use `ft_printf` in a C program.
 
-## 📁 Project Structure
+1.  Create a `main.c` file:
 
-> The layout below is simplified for clarity. All source files are located in the root directory.
+    ```c
+    #include "ft_printf.h"
 
-```
-ft_printf/
-├── ft_printf.c        # Main implementation (e.g., handles %c, %s, %d)
-├── ft_printf.h        # Header file
-├── Makefile           # Build script
-└── README.md          # Documentation
-```
+    int main(void)
+    {
+        char          *s = "World";
+        int           d = 42;
+        unsigned int  u = 2147483647;
 
-## 📜 License
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+        ft_printf("--- Testing ft_printf ---\n");
+        ft_printf("Hello, %s!\n", s);
+        ft_printf("The answer is %d.\n", d);
+        ft_printf("Unsigned max is %u.\n", u);
+        ft_printf("Hexadecimal of %d is: %x in lowercase and %X in uppercase.\n", d, d, d);
+        ft_printf("A pointer address looks like this: %p\n", s);
+        ft_printf("Don't forget the %% sign!\n");
+        ft_printf("--- Test Complete ---\n");
+        return (0);
+    }
+    ```
+
+2.  Compile your program, linking the `ft_printf` library:
+
+    ```bash
+    cc main.c -L. -lftprintf -o my_program
+    ```
+
+3.  Run the program:
+    ```bash
+    ./my_program
+    ```
+
+## 📄 License
+
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## 📬 Contact
-For questions, issues, or contributions:
-- GitHub: [valyriasteel](https://github.com/valyriasteel)
-- Feel free to open an [issue](https://github.com/valyriasteel/ft_printf/issues) or [pull request](https://github.com/valyriasteel/ft_printf/pulls)!
 
-> 📝 *This project and its documentation are written in English to ensure accessibility for a global audience.*
+**Berat Boşnak**
 
+*   **LinkedIn:** [linkedin.com/in/beratbosnak](https://www.linkedin.com/in/beratbosnak)
 ---
-**Keywords**: printf in C, variadic functions, 42 school project, custom printf, ft_printf, formatted output
