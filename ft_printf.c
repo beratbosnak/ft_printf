@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbosnak <bbosnak@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*   By: bbosnak <bbosnak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:31 by bbosnak           #+#    #+#             */
-/*   Updated: 2023/05/26 11:09:33 by bbosnak          ###   ########.tr       */
+/*   Updated: 2025/06/19 13:38:17 by bbosnak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 int	ft_putchar(int c)
 {
@@ -58,26 +60,26 @@ int	ft_nbr(unsigned long nbr, int base, char *str, int mod)
 	return (len);
 }
 
-int	ft_format(va_list args, char format)
+int	ft_format(va_list *args, char format)
 {
 	int	len;
 
 	len = 0;
 	if (format == 'c')
-		len += ft_putchar(va_arg(args, int));
+		len += ft_putchar(va_arg(*args, int));
 	else if (format == 's')
-		len += ft_putstr(va_arg(args, char *));
+		len += ft_putstr(va_arg(*args, char *));
 	else if (format == 'u')
-		len += ft_nbr(va_arg(args, unsigned int), 10, "0123456789", 0);
+		len += ft_nbr(va_arg(*args, unsigned int), 10, "0123456789", 0);
 	else if (format == 'd' || format == 'i')
-		len += ft_nbr(va_arg(args, int), 10, "0123456789", 1);
+		len += ft_nbr(va_arg(*args, int), 10, "0123456789", 1);
 	else if (format == 'p')
-		len += ft_nbr(va_arg(args, unsigned long), 16, "0123456789abcdef",
+		len += ft_nbr(va_arg(*args, unsigned long long), 16, "0123456789abcdef",
 				2);
 	else if (format == 'x')
-		len += ft_nbr(va_arg(args, unsigned int), 16, "0123456789abcdef", 0);
+		len += ft_nbr(va_arg(*args, unsigned int), 16, "0123456789abcdef", 0);
 	else if (format == 'X')
-		len += ft_nbr(va_arg(args, unsigned int), 16, "0123456789ABCDEF", 0);
+		len += ft_nbr(va_arg(*args, unsigned int), 16, "0123456789ABCDEF", 0);
 	else if (format == '%')
 		len += ft_putchar('%');
 	return (len);
@@ -95,7 +97,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			len += ft_format(args, *str);
+			len += ft_format(&args, *str);
 		}
 		else
 			len += ft_putchar(*str);
@@ -104,8 +106,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
-
-/* int main(void)
-{
-	ft_printf("%s", "berat");
-} */
