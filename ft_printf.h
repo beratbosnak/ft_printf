@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbosnak <bbosnak@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*   By: bbosnak <bbosnak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:52 by bbosnak           #+#    #+#             */
-/*   Updated: 2023/05/26 11:09:53 by bbosnak          ###   ########.tr       */
+/*   Updated: 2025/06/19 13:38:51 by bbosnak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-# include <stdarg.h>
-# include <unistd.h>
 
 int	ft_printf(const char *str, ...);
 #endif
