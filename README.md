@@ -101,6 +101,18 @@ Here is a simple example demonstrating how to link and use `ft_printf` in a C pr
     ```bash
     ./my_program
     ```
+4.  **Expected Output:**
+
+    ```text
+    --- Testing ft_printf ---
+    Hello, World!
+    The answer is 42.
+    Unsigned max is 2147483647.
+    Hexadecimal of 42 is: 2a in lowercase and 2A in uppercase.
+    A pointer address looks like this: 0x...
+    Don't forget the % sign!
+    --- Test Complete ---
+    ```
 
 ## 📄 License
 
