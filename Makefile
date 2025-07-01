@@ -8,15 +8,15 @@ BLUE = \033[0;34m
 RED = \033[0;31m
 RESET = \033[0m
 
-SRCS = ft_printf.c
+SRC = ft_printf.c
 
-OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
+OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJ)
 		@echo "$(BLUE)Creating library $(NAME)...$(RESET)"
-		@ar rc $(NAME) $(OBJS)
+		@ar rc $(NAME) $(OBJ)
 		@echo "$(GREEN)✓ $(NAME) created successfully!$(RESET)"
 
 $(OBJDIR)/%.o: %.c ft_printf.h
