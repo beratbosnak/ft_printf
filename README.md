@@ -24,6 +24,12 @@
 
 ft_printf is a recreation of the standard C library's `printf()` function, built from scratch as part of **42 School's curriculum**. This project challenges students to implement one of C's most versatile and widely-used functions, requiring deep understanding of variadic functions, format string parsing, and type-safe output handling.
 
+**Function Prototype:**
+```c
+int ft_printf(const char *format, ...);
+```
+Returns the number of characters printed (excluding the null terminator).
+
 **Why This Project Matters:**
 - Demonstrates understanding of **variadic functions** (`va_start`, `va_arg`, `va_end`)
 - Shows proficiency in **string parsing** and **format specifier handling**
@@ -61,7 +67,7 @@ The library supports the following format conversions:
 |-----------|-------------|---------------|----------------|
 | `%c` | Single character | `ft_printf("%c", 'A')` | `A` |
 | `%s` | String | `ft_printf("%s", "Hello")` | `Hello` |
-| `%p` | Pointer address (hex) | `ft_printf("%p", ptr)` | `0x7fff5fbff710` |
+| `%p` | Pointer address (hex) | `ft_printf("%p", ptr)` | `0x16f262e4c` |
 | `%d` | Signed decimal integer | `ft_printf("%d", -42)` | `-42` |
 | `%i` | Signed integer (base 10) | `ft_printf("%i", 42)` | `42` |
 | `%u` | Unsigned decimal integer | `ft_printf("%u", 42)` | `42` |
@@ -254,10 +260,14 @@ This project was developed according to 42 School's strict requirements:
 - `va_start`, `va_arg`, `va_copy`, `va_end`
 
 ### Additional Notes
-- **Bonus Part**: Not implemented (flags and field width management)
-- **Buffer Management**: Not implemented (outputs character-by-character)
-- **Testing**: Thoroughly tested against standard printf() output
-- **Integration**: Can be added to libft for use in future projects
+- **Libft Usage**: This project allows use of personal libft functions
+  - Can utilize existing libft utilities (string operations, memory functions, etc.)
+  - Once completed, ft_printf() itself can be added to libft for future projects
+- **Bonus Part**: Not implemented (focused on perfect mandatory implementation)
+  - Bonus features include: Flag management (`-`, `0`, `.` field width), additional flags (`#`, `+`, space)
+  - These provide advanced formatting options like padding, precision, and prefix control
+- **Buffer Management**: Not implemented (outputs character-by-character using write())
+- **Testing**: Thoroughly tested against standard printf() output for all supported conversions
 
 ## ⚖ License
 
