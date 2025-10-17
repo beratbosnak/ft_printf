@@ -51,6 +51,7 @@ This project demonstrates proficiency in:
 | **Pointer Handling** | Memory address formatting and display |
 | **Output Management** | Character-by-character output with write() system call |
 | **Return Value Tracking** | Accurate character count across all conversions |
+| **Code Standards** | Strict adherence to [Norminette](https://github.com/42School/norminette) coding style |
 
 **Code Quality Standards:**
 - ✅ Matches standard printf() behavior
